@@ -1,0 +1,43 @@
+@import '../../../shared/styles/variables.module';
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.categoryCard {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  width: 100%;
+
+  &:hover {
+    .image {
+      transform: scale(1.03);
+    }
+  }
+}
+
+.imageWrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  background-color: $color-secondary;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: $color-main;
+  margin-bottom: 4px;
+}
+
+.count {
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-secondary;
+}
