@@ -14,7 +14,11 @@ export const Footer: React.FC = () => {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <Link to="/" className={styles.logoLink}>
-          <img src="/img/icons/Logo.svg" alt="logo" className={styles.logo} />
+          <img
+            src={`${import.meta.env.BASE_URL}img/icons/Logo.svg`}
+            alt="logo"
+            className={styles.logo}
+          />
         </Link>
 
         <nav className={styles.nav}>
@@ -43,7 +47,7 @@ export const Footer: React.FC = () => {
             onClick={scrollToTop}
           >
             <img
-              src="/img/icons/Chevron (Arrow Up).svg"
+              src={`${import.meta.env.BASE_URL}img/icons/Chevron (Arrow Up).svg`}
               alt="Back to top"
               className={styles.arrowIcon}
             />

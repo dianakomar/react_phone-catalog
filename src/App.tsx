@@ -20,7 +20,7 @@ const NotFoundPage = () => (
 
 export const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <FavoritesProvider>
         <CartProvider>
           <div className="App">

@@ -2,9 +2,8 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Breadcrumbs.module.scss';
 
-import homeIcon from '../../../../public/img/icons/Home.svg';
-// eslint-disable-next-line max-len
-import arrowRightIcon from '../../../../public/img/icons/Chevron (Arrow Right).svg';
+const homeIcon = `${import.meta.env.BASE_URL}img/icons/Home.svg`;
+const arrowRightIcon = `${import.meta.env.BASE_URL}img/icons/Chevron (Arrow Right).svg`;
 
 interface Props {
   productName?: string;

@@ -39,7 +39,7 @@ export const ProductsSlider: React.FC<Props> = ({ title, products }) => {
             disabled={startIndex === 0}
           >
             <img
-              src="/img/icons/Chevron (Arrow Right).svg"
+              src={`${import.meta.env.BASE_URL}img/icons/Chevron (Arrow Right).svg`}
               alt="Previous"
               className={styles.arrowLeft}
             />
@@ -52,7 +52,7 @@ export const ProductsSlider: React.FC<Props> = ({ title, products }) => {
             disabled={startIndex >= maxIndex}
           >
             <img
-              src="/img/icons/Chevron (Arrow Right).svg"
+              src={`${import.meta.env.BASE_URL}img/icons/Chevron (Arrow Right).svg`}
               alt="Next"
               className={styles.arrowRight}
             />

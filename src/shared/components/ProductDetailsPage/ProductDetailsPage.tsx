@@ -9,9 +9,8 @@ import { BackButton } from '../BackButton';
 import { ProductsSlider } from '../ProductsSlider';
 import { useCart, useFavorites } from '../../context';
 
-import heartIcon from '../../../../public/img/icons/Favourites.svg';
-// eslint-disable-next-line max-len
-import heartFilledIcon from '../../../../public/img/icons/Favourites Filled.svg';
+const heartIcon = `${import.meta.env.BASE_URL}img/icons/Favourites.svg`;
+const heartFilledIcon = `${import.meta.env.BASE_URL}img/icons/Favourites Filled.svg`;
 
 export interface ProductDetail {
   id: string;
@@ -40,15 +39,15 @@ const getImageUrl = (path: string): string => {
     return '';
   }
 
-  if (
-    path.startsWith('/') ||
-    path.startsWith('http') ||
-    path.startsWith('data:')
-  ) {
+  if (path.startsWith('http') || path.startsWith('data:')) {
     return path;
   }
 
-  return `/${path}`;
+  if (path.startsWith(import.meta.env.BASE_URL)) {
+    return path;
+  }
+
+  return `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
 };
 
 export const ProductDetailsPage: React.FC = () => {

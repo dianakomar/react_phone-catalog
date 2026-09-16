@@ -31,7 +31,16 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
   return (
     <div className={styles.card}>
       <Link to={`/product/${itemId}`} className={styles.imageWrapper}>
-        <img src={`/${image}`} alt={name} className={styles.image} />
+        <img
+          src={
+            image.startsWith('http') ||
+            image.startsWith(import.meta.env.BASE_URL)
+              ? image
+              : `${import.meta.env.BASE_URL}${image.replace(/^\//, '')}`
+          }
+          alt={name}
+          className={styles.image}
+        />
       </Link>
 
       <Link to={`/product/${itemId}`} className={styles.titleLink}>
@@ -81,8 +90,8 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
           <img
             src={
               isFavorite
-                ? '/img/icons/Favourites Filled.svg'
-                : '/img/icons/Favourites.svg'
+                ? `${import.meta.env.BASE_URL}img/icons/Favourites Filled.svg`
+                : `${import.meta.env.BASE_URL}img/icons/Favourites.svg`
             }
             alt="Favorite"
           />

@@ -170,7 +170,7 @@ export const CatalogPage: React.FC<Props> = ({ title, category }) => {
                 >
                   <span>{currentSortLabel}</span>
                   <img
-                    src="img/icons/Chevron (Arrow Down).svg"
+                    src={`${import.meta.env.BASE_URL}img/icons/Chevron (Arrow Down).svg`}
                     alt=""
                     className={`${styles.selectArrow} ${isSortOpen ? styles.selectArrowOpen : ''}`}
                   />
@@ -206,7 +206,7 @@ export const CatalogPage: React.FC<Props> = ({ title, category }) => {
                 >
                   <span>{perPageParam}</span>
                   <img
-                    src="img/icons/Chevron (Arrow Down).svg"
+                    src={`${import.meta.env.BASE_URL}img/icons/Chevron (Arrow Down).svg`}
                     alt=""
                     className={`${styles.selectArrow} ${isPerPageOpen ? styles.selectArrowOpen : ''}`}
                   />
@@ -242,7 +242,7 @@ export const CatalogPage: React.FC<Props> = ({ title, category }) => {
                 className={styles.pageBtn}
               >
                 <img
-                  src="img/icons/Chevron (Arrow Left).svg"
+                  src={`${import.meta.env.BASE_URL}img/icons/Chevron (Arrow Left).svg`}
                   alt="Previous page"
                   className={styles.pageIcon}
                 />
@@ -266,7 +266,7 @@ export const CatalogPage: React.FC<Props> = ({ title, category }) => {
                 className={styles.pageBtn}
               >
                 <img
-                  src="img/icons/Chevron (Arrow Right).svg"
+                  src={`${import.meta.env.BASE_URL}img/icons/Chevron (Arrow Right).svg`}
                   alt="Next page"
                   className={styles.pageIcon}
                 />

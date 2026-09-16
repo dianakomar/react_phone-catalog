@@ -1,8 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './BackButton.module.scss';
-// eslint-disable-next-line max-len
-import arrowLeftIcon from '../../../../public/img/icons/Chevron (Arrow Left).svg';
+const arrowLeftIcon = `${import.meta.env.BASE_URL}img/icons/Chevron (Arrow Left).svg`;
 
 export const BackButton: React.FC = () => {
   const navigate = useNavigate();

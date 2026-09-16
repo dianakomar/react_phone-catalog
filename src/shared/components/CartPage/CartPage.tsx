@@ -58,7 +58,7 @@ export const CartPage: React.FC = () => {
                     aria-label="Remove item"
                   >
                     <img
-                      src="/img/icons/Close.svg"
+                      src={`${import.meta.env.BASE_URL}img/icons/Close.svg`}
                       alt="Remove"
                       className={styles.removeIcon}
                     />
@@ -69,7 +69,12 @@ export const CartPage: React.FC = () => {
                     className={styles.imageLink}
                   >
                     <img
-                      src={`/${product.image}`}
+                      src={
+                        product.image.startsWith('http') ||
+                        product.image.startsWith(import.meta.env.BASE_URL)
+                          ? product.image
+                          : `${import.meta.env.BASE_URL}${product.image.replace(/^\//, '')}`
+                      }
                       alt={product.name}
                       className={styles.itemImage}
                     />
