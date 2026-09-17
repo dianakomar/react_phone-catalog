@@ -42,7 +42,7 @@ export const Menu: React.FC<MenuProps> = ({ onClose }) => {
         <NavLink to="/favorites" className={getIconLinkClass} onClick={onClose}>
           <div className={styles.iconWrapper}>
             <img
-              src={`${import.meta.env.BASE_URL}img/icons/Favourites.svg`}
+              src="img/icons/Favourites.svg"
               alt="Favorites"
               className={styles.icon}
             />
@@ -55,7 +55,7 @@ export const Menu: React.FC<MenuProps> = ({ onClose }) => {
         <NavLink to="/cart" className={getIconLinkClass} onClick={onClose}>
           <div className={styles.iconWrapper}>
             <img
-              src={`${import.meta.env.BASE_URL}img/icons/ShoppingBag.svg`}
+              src="img/icons/ShoppingBag.svg"
               alt="Shopping bag"
               className={styles.icon}
             />

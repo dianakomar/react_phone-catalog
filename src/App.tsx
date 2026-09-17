@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { HashRouter, Link, Route, Routes } from 'react-router-dom';
 import './App.scss';
 import { Header } from './shared/components/Header';
 import { Footer } from './shared/components/Footer';
@@ -20,7 +20,7 @@ const NotFoundPage = () => (
 
 export const App = () => {
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <HashRouter>
       <FavoritesProvider>
         <CartProvider>
           <div className="App">
@@ -61,6 +61,6 @@ export const App = () => {
           </div>
         </CartProvider>
       </FavoritesProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 };

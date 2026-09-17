@@ -2,8 +2,8 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Breadcrumbs.module.scss';
 
-const homeIcon = `${import.meta.env.BASE_URL}img/icons/Home.svg`;
-const arrowRightIcon = `${import.meta.env.BASE_URL}img/icons/Chevron (Arrow Right).svg`;
+const homeIcon = 'img/icons/Home.svg';
+const arrowRightIcon = 'img/icons/Chevron (Arrow Right).svg';
 
 interface Props {
   productName?: string;

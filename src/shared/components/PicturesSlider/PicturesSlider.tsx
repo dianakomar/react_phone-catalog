@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import styles from './PicturesSlider.module.scss';
 
 const BANNER_IMAGES = [
-  `${import.meta.env.BASE_URL}img/banner-phones.png`,
-  `${import.meta.env.BASE_URL}img/banner-tablets.png`,
-  `${import.meta.env.BASE_URL}img/banner-accessories.png`,
+  'img/banner-phones.png',
+  'img/banner-tablets.png',
+  'img/banner-accessories.png',
 ];
 
 export const PicturesSlider: React.FC = () => {
@@ -23,7 +23,7 @@ export const PicturesSlider: React.FC = () => {
       <div className={styles.wrapper}>
         <button type="button" className={styles.button} onClick={handlePrev}>
           <img
-            src={`${import.meta.env.BASE_URL}img/icons/Chevron (Arrow Right).svg`}
+            src="img/icons/Chevron (Arrow Right).svg"
             alt="Previous"
             className={styles.arrowLeft}
           />
@@ -39,7 +39,7 @@ export const PicturesSlider: React.FC = () => {
 
         <button type="button" className={styles.button} onClick={handleNext}>
           <img
-            src={`${import.meta.env.BASE_URL}img/icons/Chevron (Arrow Right).svg`}
+            src="img/icons/Chevron (Arrow Right).svg"
             alt="Next"
             className={styles.arrowRight}
           />

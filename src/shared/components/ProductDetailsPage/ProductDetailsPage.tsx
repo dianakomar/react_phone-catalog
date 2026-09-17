@@ -9,8 +9,8 @@ import { BackButton } from '../BackButton';
 import { ProductsSlider } from '../ProductsSlider';
 import { useCart, useFavorites } from '../../context';
 
-const heartIcon = `${import.meta.env.BASE_URL}img/icons/Favourites.svg`;
-const heartFilledIcon = `${import.meta.env.BASE_URL}img/icons/Favourites Filled.svg`;
+const heartIcon = 'img/icons/Favourites.svg';
+const heartFilledIcon = 'img/icons/Favourites Filled.svg';
 
 export interface ProductDetail {
   id: string;
@@ -43,11 +43,7 @@ const getImageUrl = (path: string): string => {
     return path;
   }
 
-  if (path.startsWith(import.meta.env.BASE_URL)) {
-    return path;
-  }
-
-  return `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
+  return path.replace(/^\//, '');
 };
 
 export const ProductDetailsPage: React.FC = () => {

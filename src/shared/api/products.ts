@@ -1,27 +1,36 @@
 import { Product } from '../types/Product';
 
-export const getProducts = async (): Promise<Product[]> => {
-  const response = await fetch(`${import.meta.env.BASE_URL}api/products.json`);
+const fetchData = async (endpoint: string): Promise<unknown> => {
+  const cleanEndpoint = endpoint.replace(/^\//, '');
+  const urls = [
+    cleanEndpoint,
+    `${import.meta.env.BASE_URL}${cleanEndpoint}`,
+    `/${cleanEndpoint}`,
+  ];
 
-  if (!response.ok) {
-    throw new Error('Failed to fetch products');
+  for (const url of urls) {
+    try {
+      const response = await fetch(url);
+
+      if (response.ok) {
+        return await response.json();
+      }
+    } catch {
+      // try next path
+    }
   }
 
-  return response.json();
+  throw new Error(`Failed to fetch ${endpoint}`);
+};
+
+export const getProducts = async (): Promise<Product[]> => {
+  return (await fetchData('api/products.json')) as Product[];
 };
 
 export const getCategoryDetails = async (
   category: string,
 ): Promise<unknown[]> => {
-  const response = await fetch(
-    `${import.meta.env.BASE_URL}api/${category}.json`,
-  );
-
-  if (!response.ok) {
-    throw new Error(`Failed to fetch ${category}`);
-  }
-
-  return response.json();
+  return (await fetchData(`api/${category}.json`)) as unknown[];
 };
 
 export const getProductById = async (

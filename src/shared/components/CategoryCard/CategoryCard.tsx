@@ -9,15 +9,11 @@ interface Props {
 
 export const CategoryCard: React.FC<Props> = ({ category }) => {
   const { image, title, count, link } = category;
-  const imageSrc =
-    image.startsWith('http') || image.startsWith(import.meta.env.BASE_URL)
-      ? image
-      : `${import.meta.env.BASE_URL}${image.replace(/^\//, '')}`;
 
   return (
     <div className={styles.card}>
       <Link to={link} className={styles.imageLink}>
-        <img src={imageSrc} alt={title} className={styles.image} />
+        <img src={image} alt={title} className={styles.image} />
       </Link>
 
       <h3 className={styles.title}>

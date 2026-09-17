@@ -41,11 +41,7 @@ export const Header: React.FC = () => {
       <header className={styles.header}>
         <div className={styles.leftSide}>
           <Link to="/">
-            <img
-              src={`${import.meta.env.BASE_URL}img/icons/Logo.svg`}
-              alt="Logo"
-              className={styles.logo}
-            />
+            <img src="img/icons/Logo.svg" alt="Logo" className={styles.logo} />
           </Link>
 
           <nav className={styles.nav}>
@@ -68,7 +64,7 @@ export const Header: React.FC = () => {
           <NavLink to="/favorites" className={getIconLinkClass}>
             <div className={styles.iconWrapper}>
               <img
-                src={`${import.meta.env.BASE_URL}img/icons/Favourites.svg`}
+                src="img/icons/Favourites.svg"
                 alt="Favorites"
                 className={styles.icon}
               />
@@ -81,7 +77,7 @@ export const Header: React.FC = () => {
           <NavLink to="/cart" className={getIconLinkClass}>
             <div className={styles.iconWrapper}>
               <img
-                src={`${import.meta.env.BASE_URL}img/icons/ShoppingBag.svg`}
+                src="img/icons/ShoppingBag.svg"
                 alt="Shopping bag"
                 className={styles.icon}
               />
@@ -102,13 +98,13 @@ export const Header: React.FC = () => {
         >
           {isMenuOpen ? (
             <img
-              src={`${import.meta.env.BASE_URL}img/icons/Close.svg`}
+              src="img/icons/Close.svg"
               alt="Close menu"
               className={styles.icon}
             />
           ) : (
             <img
-              src={`${import.meta.env.BASE_URL}img/icons/Union.svg`}
+              src="img/icons/Union.svg"
               alt="Open menu"
               className={styles.icon}
             />
