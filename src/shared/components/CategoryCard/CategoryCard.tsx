@@ -11,18 +11,16 @@ export const CategoryCard: React.FC<Props> = ({ category }) => {
   const { image, title, count, link } = category;
 
   return (
-    <div className={styles.card}>
-      <Link to={link} className={styles.imageLink}>
-        <img src={image} alt={title} className={styles.image} />
+    <article className={styles.category}>
+      <Link to={link}>
+        <img src={image} alt={title} className={styles.picture} />
       </Link>
 
-      <h3 className={styles.title}>
-        <Link to={link} className={styles.titleLink}>
-          {title}
-        </Link>
-      </h3>
+      <Link to={link} className={styles.title}>
+        {title}
+      </Link>
 
-      <p className={styles.count}>{`${count} models`}</p>
-    </div>
+      <p className={styles.description}>{`${count} models`}</p>
+    </article>
   );
 };

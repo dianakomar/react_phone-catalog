@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styles from './PicturesSlider.module.scss';
 
 const BANNER_IMAGES = [
@@ -9,17 +9,34 @@ const BANNER_IMAGES = [
 
 export const PicturesSlider: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setCurrentIndex(prev => (prev + 1) % BANNER_IMAGES.length);
-  };
+  }, []);
 
   const handlePrev = () => {
     setCurrentIndex(prev => (prev === 0 ? BANNER_IMAGES.length - 1 : prev - 1));
   };
 
+  useEffect(() => {
+    if (isHovered) {
+      return;
+    }
+
+    const intervalId = setInterval(() => {
+      handleNext();
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }, [isHovered, handleNext]);
+
   return (
-    <div className={styles.picturesSlider}>
+    <div
+      className={styles.picturesSlider}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className={styles.wrapper}>
         <button type="button" className={styles.button} onClick={handlePrev}>
           <img
@@ -31,7 +48,7 @@ export const PicturesSlider: React.FC = () => {
 
         <div className={styles.imageContainer}>
           <img
-            src={BANNER_IMAGES[currentIndex]}
+            src={`${BANNER_IMAGES[currentIndex]}`}
             alt="Banner"
             className={styles.image}
           />
