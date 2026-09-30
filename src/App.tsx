@@ -23,7 +23,14 @@ export const App = () => {
     <HashRouter>
       <FavoritesProvider>
         <CartProvider>
-          <div className="App">
+          <div
+            className="App"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              minHeight: '100vh',
+            }}
+          >
             <Header />
             <main style={{ flex: 1 }}>
               <Routes>

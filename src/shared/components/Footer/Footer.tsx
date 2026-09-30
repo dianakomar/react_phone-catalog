@@ -1,6 +1,6 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Footer.module.scss';
-import React from 'react';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -14,22 +14,33 @@ export const Footer: React.FC = () => {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <Link to="/" className={styles.logoLink}>
-          <img src="img/icons/Logo.svg" alt="logo" className={styles.logo} />
+          <img src={`img/icons/Logo.svg`} alt="logo" className={styles.logo} />
         </Link>
 
         <nav className={styles.nav}>
           <a
-            href="https://github.com"
+            href="https://github.com/dianakomar/react_phone-catalog"
             target="_blank"
             rel="noreferrer"
             className={styles.link}
           >
             Github
           </a>
-          <a href="#contacts" className={styles.link}>
+          <a
+            href="https://github.com/dianakomar"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.link}
+          >
             Contacts
           </a>
-          <a href="#rights" className={styles.link}>
+          <a
+            // eslint-disable-next-line max-len
+            href="https://github.com/dianakomar/react_phone-catalog/blob/develop/LICENSE"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.link}
+          >
             Rights
           </a>
         </nav>
@@ -43,7 +54,7 @@ export const Footer: React.FC = () => {
             onClick={scrollToTop}
           >
             <img
-              src="img/icons/Chevron (Arrow Up).svg"
+              src={`img/icons/Chevron (Arrow Up).svg`}
               alt="Back to top"
               className={styles.arrowIcon}
             />
