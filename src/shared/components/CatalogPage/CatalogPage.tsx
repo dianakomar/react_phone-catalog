@@ -140,6 +140,25 @@ export const CatalogPage: React.FC<Props> = ({ title, category }) => {
   const currentSortLabel =
     SORT_OPTIONS.find(opt => opt.value === sortBy)?.label || 'Newest';
 
+  const visiblePages = useMemo(() => {
+    const maxVisible = 4;
+    let start = Math.max(1, currentPage - 1);
+    let end = start + maxVisible - 1;
+
+    if (end > totalPages) {
+      end = totalPages;
+      start = Math.max(1, end - maxVisible + 1);
+    }
+
+    const pages = [];
+
+    for (let i = start; i <= end; i += 1) {
+      pages.push(i);
+    }
+
+    return pages;
+  }, [currentPage, totalPages]);
+
   return (
     <div className={styles.container}>
       <Breadcrumbs category={category} />
@@ -158,7 +177,6 @@ export const CatalogPage: React.FC<Props> = ({ title, category }) => {
           <p className={styles.count}>{products.length} models</p>
 
           <div className={styles.filters}>
-            {/* Фільтр сортування */}
             <div className={styles.filterGroup}>
               <span className={styles.label}>Sort by</span>
 
@@ -194,7 +212,6 @@ export const CatalogPage: React.FC<Props> = ({ title, category }) => {
               </div>
             </div>
 
-            {/* Фільтр кількості елементів */}
             <div className={styles.filterGroup}>
               <span className={styles.label}>Items on page</span>
 
@@ -235,42 +252,46 @@ export const CatalogPage: React.FC<Props> = ({ title, category }) => {
 
           {perPageParam !== 'all' && totalPages > 1 && (
             <div className={styles.pagination}>
-              <button
-                type="button"
-                disabled={currentPage === 1}
-                onClick={() => handlePageChange(currentPage - 1)}
-                className={styles.pageBtn}
-              >
-                <img
-                  src="img/icons/Chevron (Arrow Left).svg"
-                  alt="Previous page"
-                  className={styles.pageIcon}
-                />
-              </button>
+              {perPageParam !== 'all' && totalPages > 1 && (
+                <div className={styles.pagination}>
+                  <button
+                    type="button"
+                    disabled={currentPage === 1}
+                    onClick={() => handlePageChange(currentPage - 1)}
+                    className={styles.pageBtn}
+                  >
+                    <img
+                      src="img/icons/Chevron (Arrow Left).svg"
+                      alt="Previous page"
+                      className={styles.pageIcon}
+                    />
+                  </button>
 
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
-                <button
-                  key={p}
-                  type="button"
-                  className={`${styles.pageBtn} ${p === currentPage ? styles.active : ''}`}
-                  onClick={() => handlePageChange(p)}
-                >
-                  {p}
-                </button>
-              ))}
+                  {visiblePages.map(p => (
+                    <button
+                      key={p}
+                      type="button"
+                      className={`${styles.pageBtn} ${p === currentPage ? styles.active : ''}`}
+                      onClick={() => handlePageChange(p)}
+                    >
+                      {p}
+                    </button>
+                  ))}
 
-              <button
-                type="button"
-                disabled={currentPage === totalPages}
-                onClick={() => handlePageChange(currentPage + 1)}
-                className={styles.pageBtn}
-              >
-                <img
-                  src="img/icons/Chevron (Arrow Right).svg"
-                  alt="Next page"
-                  className={styles.pageIcon}
-                />
-              </button>
+                  <button
+                    type="button"
+                    disabled={currentPage === totalPages}
+                    onClick={() => handlePageChange(currentPage + 1)}
+                    className={styles.pageBtn}
+                  >
+                    <img
+                      src="img/icons/Chevron (Arrow Right).svg"
+                      alt="Next page"
+                      className={styles.pageIcon}
+                    />
+                  </button>
+                </div>
+              )}
             </div>
           )}
         </>
